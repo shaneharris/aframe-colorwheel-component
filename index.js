@@ -104,16 +104,8 @@ AFRAME.registerComponent('colorwheel', {
     this.swatchContainer = document.createElement('a-plane')
     this.swatchContainer.setAttribute('class', 'swatch-container')
     this.swatchContainer.setAttribute('material', this.defaultMaterial)
-    this.swatchContainer.setAttribute('width', 0)
-    this.swatchContainer.setAttribute('height', 0)
     this.swatchContainer.addEventListener('loaded', this.onSwatchReady.bind(this))
 
-    //Give swatch panel a rakish angle
-    this.swatchContainer.setAttribute('rotation', {
-      x: -30,
-      y: 0,
-      z: 0
-    })
     this.el.appendChild(this.swatchContainer)
 
     //Show hex value display
@@ -277,6 +269,12 @@ AFRAME.registerComponent('colorwheel', {
       z: 0.03
     })
 
+    //Give swatch panel a rakish angle
+    this.swatchContainer.setAttribute('rotation', {
+      x: -30,
+      y: 0,
+      z: 0
+    })
     //Loop through swatches and create elements
     for (let i = 0; i < swatchData.length; i++) {
       const color = swatchData[i]
